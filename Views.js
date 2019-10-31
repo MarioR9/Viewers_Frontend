@@ -5,7 +5,7 @@ const puppeteer = require('puppeteer');
   const page = await browser.newPage();
 
   await page.goto('Proxy here')
-  await page.type("#maintextfield","www.twitch.tv")
+  await page.type("#maintextfield","website to views here.")
   await page.keyboard.press('Enter')
 
   await page.waitForSelector("[data-a-target= 'browse-channels-button']")
