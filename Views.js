@@ -19,7 +19,7 @@ const puppeteer = require('puppeteer');
 
   await page.screenshot({path: 'example.png'});
 
-  await page.waitFor(200000)
+  await page.waitFor(2000)
 
   await browser.close();
   
