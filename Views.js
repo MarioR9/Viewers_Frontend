@@ -4,7 +4,7 @@ const puppeteer = require('puppeteer');
   const browser = await puppeteer.launch({headless:false});
   const page = await browser.newPage();
 
-  await page.goto('https://www.kproxy.com/')
+  await page.goto('Proxy here')
   await page.type("#maintextfield","www.twitch.tv")
   await page.keyboard.press('Enter')
 
