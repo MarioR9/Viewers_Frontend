@@ -17,7 +17,7 @@ const puppeteer = require('puppeteer');
   await inputElement.click();
 
 
-  await page.screenshot({path: 'example.png'});
+  await page.screenshot({path: 'ROUTE FOR SCREEN SHOT HERE'});
 
   await page.waitFor(2000)
 
