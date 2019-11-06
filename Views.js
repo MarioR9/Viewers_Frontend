@@ -2,6 +2,11 @@ const puppeteer = require('puppeteer');
 const proxyChain = require('proxy-chain');
 
 
+
+let site = 'CHANNEL_HERE';
+let numOfViewers = 0;
+
+
 (async () => {
   const browser = await puppeteer.launch({headless:false});
   const page = await browser.newPage();
