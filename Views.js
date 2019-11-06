@@ -56,8 +56,40 @@ let numOfViewers = 0;
   await page3.goto(site,{waitUntil: 'networkidle0'})
 
 // // //////////////////////////////////////////////////////////////////////////////////////////
+// // ////////////////////////////////// 4 proxy /////////////////////////////////////////////
+
+const oldProxyUrl4 = 'http://PROXY_ADDRESS:PORT';
+const newProxyUrl4 = await proxyChain.anonymizeProxy(oldProxyUrl4);
+
+const browser4 = await puppeteer.launch({
+  headless:false,
+  args: [`--proxy-server=${newProxyUrl4}`],
+});
+
+const page4 = await browser4.newPage();
+console.log("connecting to " + newProxyUrl4)
+await page4.goto(site,{waitUntil: 'networkidle0'})
+
+// // //////////////////////////////////////////////////////////////////////////////////////////
+// // ////////////////////////////////// 5 proxy /////////////////////////////////////////////
+
+const oldProxyUrl5 = 'http://PROXY_ADDRESS:PORT';
+const newProxyUrl5 = await proxyChain.anonymizeProxy(oldProxyUrl5);
+
+const browser5 = await puppeteer.launch({
+  headless:false,
+  args: [`--proxy-server=${newProxyUrl5}`],
+});
+
+const page5 = await browser5.newPage();
+console.log("connecting to " + newProxyUrl5)
+await page5.goto(site,{waitUntil: 'networkidle0'})
+
+// // //////////////////////////////////////////////////////////////////////////////////////////
 // // /////////////////////////////////////////////////////////////////////////////////////////
   await browser.close();
   await browser2.close();
   await browser3.close();
+  await browser4.close();
+  await browser5.close();
 })();
