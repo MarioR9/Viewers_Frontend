@@ -1,4 +1,6 @@
 const puppeteer = require('puppeteer');
+const proxyChain = require('proxy-chain');
+
 
 (async () => {
   const browser = await puppeteer.launch({headless:false});
