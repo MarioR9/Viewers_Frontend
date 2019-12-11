@@ -1,6 +1,6 @@
 import React from 'react'
 import { Form, Button } from 'react-bootstrap';
-import StartBot from './Start'
+
 export default class Viewers extends React.Component{
   //state will store plataform, channel and num of viewers
   constructor(props) {
@@ -38,15 +38,9 @@ export default class Viewers extends React.Component{
           <Form.Control onChange={(e)=>{this.setState({ numOfViewers: e.currentTarget.value })}} type="text" placeholder="Number of Viewers" />
         </Form.Group>
         
-        <Button onClick={
-        <StartBot 
-        fbVideoNumber={this.state.fbVideoNumber}
-        channel={this.state.channel} 
-        numOfViewers={this.state.numOfViewers} 
-        plataform={this.state.plataform}
-        />} variant="primary" type="submit">
+        <Button variant="primary" type="submit">
 
-          Start Viewers
+         
         </Button>
       </Form>
         
