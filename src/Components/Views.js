@@ -5,14 +5,16 @@ export default class Viewers extends React.Component{
   //state will store plataform, channel and num of viewers
   constructor(props) {
     super(props);
-    this.state = {plataform: '',
-                  channel: '',
+    this.state = {channel: '',
                   numOfViewers: 0,
-                  fbVideoNumber: 0
+                  time: 0,
+                  status: "notActive"
                   }
   }
+
   handleRequest=()=>{
-    const data = { location: value}
+    const data = {website: this.state.channel, numOfViewers: this.state.numOfViewers, time: this.state.time}
+    console.log(data)
     const options = {
       method: 'POST',
       headers : { 
@@ -20,9 +22,12 @@ export default class Viewers extends React.Component{
        },
       body: JSON.stringify(data),
     }
-    fetch(`http://${localHost}:3000/api`, options)
+    fetch(`http://localhost:3000/api`, options)
     .then(resp=>resp.json())
-    .then(data)
+    .then(data => ()=>{
+      this.setState({status: data.status})
+      console.log(data)
+    })
   }
 
   
@@ -30,19 +35,22 @@ export default class Viewers extends React.Component{
     return(
       
       <div className="Form-Container">
+        <div>{this.state.status}</div>
       <Form>
         <Form.Group >
           <Form.Label>Enter Channel Website</Form.Label>
-          <Form.Control onChange={(e)=>{this.setState({ channel: e.currentTarget.value })}} type="text" placeholder="Channel Name" />
+          <Form.Control onChange={(e)=>{this.setState({ channel: e.currentTarget.value })}} type="text" placeholder="https://www.twitch.tv/user"/>
           <Form.Text className="text-muted">
             This process is for testing only.
           </Form.Text>
           <Form.Label>Desired Number of Viewers</Form.Label>
           <Form.Control onChange={(e)=>{this.setState({ numOfViewers: e.currentTarget.value })}} type="text" placeholder="Number of Viewers" />
+          <Form.Label>Time</Form.Label>
+          <Form.Control onChange={(e)=>{this.setState({ time: e.currentTarget.value })}} type="text" placeholder="time" />
         </Form.Group>
         
-        <Button variant="primary" type="submit">
-
+        <Button onClick={this.handleRequest} variant="primary" type="submit">
+        Send
          
         </Button>
       </Form>
