@@ -11,25 +11,28 @@ export default class Viewers extends React.Component{
                   fbVideoNumber: 0
                   }
   }
+  handleRequest=()=>{
+    const data = { location: value}
+    const options = {
+      method: 'POST',
+      headers : { 
+        'Content-Type': 'application/json',
+       },
+      body: JSON.stringify(data),
+    }
+    fetch(`http://${localHost}:3000/api`, options)
+    .then(resp=>resp.json())
+    .then(data)
+  }
 
- 
+  
   render(){
     return(
       
       <div className="Form-Container">
       <Form>
         <Form.Group >
-        <Form.Label>Select Plataform</Form.Label>
-          <Form.Control onChange={(e)=>{this.setState({ plataform: e.currentTarget.value })}} as="select">
-            <option>Twitch</option>
-            <option>Mixer</option>
-            <option>Facebook</option>
-            <option>Youtube</option>
-          </Form.Control>
-          {this.state.plataform === 'Facebook'?
-          <Form.Group ><Form.Label>Enter Fb Video Number</Form.Label><Form.Control onChange={(e)=>{this.setState({ fbVideoNumber: e.currentTarget.value })}} type="text" placeholder="Video number" /></Form.Group>
-          :null}
-          <Form.Label>Enter Channel Name</Form.Label>
+          <Form.Label>Enter Channel Website</Form.Label>
           <Form.Control onChange={(e)=>{this.setState({ channel: e.currentTarget.value })}} type="text" placeholder="Channel Name" />
           <Form.Text className="text-muted">
             This process is for testing only.
