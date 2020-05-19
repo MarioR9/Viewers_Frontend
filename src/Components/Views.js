@@ -11,7 +11,7 @@ export default class Viewers extends React.Component{
                   status: "notActive"
                   }
   }
-
+//Fetching to backend.. response not working yet..
   handleRequest=()=>{
     const data = {website: this.state.channel, numOfViewers: this.state.numOfViewers, time: this.state.time}
     console.log(data)
