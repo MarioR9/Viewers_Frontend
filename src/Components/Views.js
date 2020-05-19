@@ -18,7 +18,7 @@ export default class Viewers extends React.Component{
     const options = {
       method: 'POST',
       headers : { 
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json', //Contente-type.. make sure cors are open.
        },
       body: JSON.stringify(data),
     }
