@@ -38,6 +38,7 @@ export default class Viewers extends React.Component{
         <div>{this.state.status}</div>
       <Form>
         <Form.Group >
+          {/* CHannel or webiste not determine yet. Could have a drop down menu instead with main streaming platforms */}
           <Form.Label>Enter Channel Website</Form.Label>
           <Form.Control onChange={(e)=>{this.setState({ channel: e.currentTarget.value })}} type="text" placeholder="https://www.twitch.tv/user"/>
           <Form.Text className="text-muted">
