@@ -1,3 +1,4 @@
 ## Viwers Bot 
 
-oirignal idea was to use puppeteer to open multiple browsers with proxy servers to simulate multiple users watching sspecifc channels but will try something new next week
+oirignal idea was to use puppeteer to open multiple browsers with proxy servers to simulate multiple users watching sspecifc channels. i am working on multiple borwsers connected to multiple proxy servers
+
