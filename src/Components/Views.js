@@ -13,7 +13,7 @@ export default class Viewers extends React.Component{
   }
 //Fetching to backend.. response not working yet..
   handleRequest=()=>{
-    const data = {website: this.state.channel, numOfViewers: this.state.numOfViewers, time: this.state.time}
+    const data = {website: "this.state.channel", numOfViewers: "this.state.numOfViewers", time: "this.state.time"}
     console.log(data)
     const options = {
       method: 'POST',
@@ -22,11 +22,14 @@ export default class Viewers extends React.Component{
        },
       body: JSON.stringify(data),
     }
-    fetch(`http://localhost:3000/api`, options)
+    fetch(`https://us-central1-viewers-c9c49.cloudfunctions.net/app/api`, options)
     .then(resp=>resp.json())
-    .then(data => 
-      console.log(data)
-    )
+    .then(data => {console.log(data)})
+
+    .catch(err => {
+      // Error handling
+      console.log("Error Reading data " + err);
+    });
 
   }
 
