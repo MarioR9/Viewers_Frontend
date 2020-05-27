@@ -18,18 +18,19 @@ export default class Viewers extends React.Component{
     const options = {
       method: 'POST',
       headers : { 
-        'Content-Type': 'application/json', //Contente-type.. make sure cors are open.
+        'Content-Type': 'application/json',
        },
       body: JSON.stringify(data),
     }
     fetch(`http://localhost:3000/api`, options)
     .then(resp=>resp.json())
-    .then(data => ()=>{
-      this.setState({status: data.status})
+    .then(data => 
       console.log(data)
-    })
+    )
+
   }
 
+  
   
   render(){
     return(
