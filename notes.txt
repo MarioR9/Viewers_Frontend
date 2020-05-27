@@ -1,0 +1,6 @@
+
+Proxy servers manually added with a limit of 9.
+However, i have to make it programatically so user can enter the amount of viwers(proxy servers to conect to...)
+Basic idea is to use puppeteer to scrape proxy serves
+****
+note to back end ... i should create a way to saved channels at users account with the set of proxy servers. after verifiing they work.
