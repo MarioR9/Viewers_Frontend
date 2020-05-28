@@ -1,5 +1,6 @@
 import React from 'react'
 import { Form, Button } from 'react-bootstrap';
+import swal from 'sweetalert2';
 
 export default class Viewers extends React.Component{
   //state will store plataform, channel and num of viewers
@@ -11,7 +12,7 @@ export default class Viewers extends React.Component{
                   
                   }
   }
-//Fetching to backend.. response not working yet..
+//handlers for request to start and stop viewing.
   handleRequest=()=>{
     this.setState({status: false})
     const data = {website: this.state.channel, numOfViewers: this.state.numOfViewers, status: "active"}
@@ -25,7 +26,7 @@ export default class Viewers extends React.Component{
     }
     fetch(`https://viewersbackend.herokuapp.com/api`, options)
     .then(resp=>resp.json())
-    .then(data => {console.log(data)})
+    .then(data => {swal.fire(data.status)})
 
     .catch(err => {
       // Error handling
@@ -36,6 +37,7 @@ export default class Viewers extends React.Component{
   handleStatusState=()=>{
     const data = {website: this.state.channel, numOfViewers: this.state.numOfViewers, status: "close"}
     console.log(data)
+    this.setState({status: true})
     const options = {
       method: 'POST',
       headers : { 
@@ -45,9 +47,7 @@ export default class Viewers extends React.Component{
     }
     fetch(`https://viewersbackend.herokuapp.com/api`, options)
     .then(resp=>resp.json())
-    .then(data => this.setState({status: false})
-    
-    )
+    .then(data => {swal.fire(data.status)})
 
     .catch(err => {
       // Error handling
@@ -60,8 +60,6 @@ export default class Viewers extends React.Component{
     return(
       
       <div className="Form-Container">
-     
-         
           {/* CHannel or webiste not determine yet. Could have a drop down menu instead with main streaming platforms */}
           <Form.Label>Enter Channel Website</Form.Label>
           <Form.Control onChange={(e)=>{this.setState({ channel: e.currentTarget.value })}} type="text" placeholder="https://www.twitch.tv/user"/>
