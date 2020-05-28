@@ -34,7 +34,6 @@ export default class Viewers extends React.Component{
 
   }
   handleStatusState=()=>{
-    this.setState({status: false})
     const data = {website: this.state.channel, numOfViewers: this.state.numOfViewers, status: "close"}
     console.log(data)
     const options = {
@@ -46,7 +45,9 @@ export default class Viewers extends React.Component{
     }
     fetch(`https://viewersbackend.herokuapp.com/api`, options)
     .then(resp=>resp.json())
-    .then(data => {console.log(data)})
+    .then(data => this.setState({status: false})
+    
+    )
 
     .catch(err => {
       // Error handling
@@ -59,7 +60,8 @@ export default class Viewers extends React.Component{
     return(
       
       <div className="Form-Container">
-        <div>{this.state.status}</div>
+     
+         
           {/* CHannel or webiste not determine yet. Could have a drop down menu instead with main streaming platforms */}
           <Form.Label>Enter Channel Website</Form.Label>
           <Form.Control onChange={(e)=>{this.setState({ channel: e.currentTarget.value })}} type="text" placeholder="https://www.twitch.tv/user"/>
