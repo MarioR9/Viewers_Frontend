@@ -65,7 +65,25 @@ export default class Viewers extends React.Component{
       return this.state.url
     }
   }
+  handleRefreshServer=()=>{
+    const data = {newList: "active"}
+    const options = {
+      method: 'POST',
+      headers : { 
+        'Content-Type': 'application/json',
+       },
+      body: JSON.stringify(data),
+    }
+    fetch(`https://viewersbackend.herokuapp.com/api`, options)
+    .then(resp=>resp.json())
+    .then(data => {swal.fire(data.status)})
+
+    .catch(err => {
+      // Error handling
+      console.log("Error Reading data " + err);
+    });
   
+  }
   render(){
     return(
       
@@ -91,6 +109,8 @@ export default class Viewers extends React.Component{
           :
           <Button onClick={this.handleRequest} variant="success" type="submit"> Send</Button>
           }
+          <br></br>
+          <Button variant="outline-info" type="submit">Refresh servers</Button>
       </div>
     )
   }
