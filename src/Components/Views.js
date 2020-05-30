@@ -115,8 +115,8 @@ export default class Viewers extends React.Component{
           <Form.Text className="text-muted">
             This process is for testing only.
           </Form.Text>
-          <Form.Label style={{color: "white"}}>Desired Number of Viewers</Form.Label>
-          <Form.Control onChange={(e)=>{this.setState({ numOfViewers: e.currentTarget.value })}} type="text" placeholder="Number of Viewers" />
+          <Form.Label style={{color: "white"}}>Number of Viewers</Form.Label>
+          <Form.Control onChange={(e)=>{this.setState({ numOfViewers: e.currentTarget.value })}} type="text" placeholder="8 Max" />
           {this.state.status === false ?
           <Button onClick={this.handleStatusState} variant="danger" type="submit">Stop</Button>
           :
