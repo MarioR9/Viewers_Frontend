@@ -112,7 +112,6 @@ export default class Viewers extends React.Component{
          allowFullScreen> 
          </iframe>
          &nbsp;
-          {/* CHannel or webiste not determine yet. Could have a drop down menu instead with main streaming platforms */}
           <Form.Label style={{color: "white"}}>Enter Channel Website</Form.Label>
           <Form.Control onChange={(e)=>{this.setState({ channel: e.currentTarget.value })}} type="text" placeholder="Ex: https://www.twitch.tv/user"/>
           <Form.Text className="text-muted">
