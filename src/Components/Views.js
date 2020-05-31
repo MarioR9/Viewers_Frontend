@@ -81,17 +81,17 @@ export default class Viewers extends React.Component{
    
     if(this.state.channel.includes("facebook.com")){
       let channelName = this.state.channel.split("/")
-        this.setState({url:`https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F${channelName[3]}%2Fvideos%2F${channelName[5]}%2F&show_text=false&width=734&appId=807760243060402&height=414`})
+        this.setState({url:`https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F${channelName[3]}%2Fvideos%2F${channelName[5]}%2F&show_text=false&width=734&appId=807760243060402&height=414`})//facebook embeded
       return this.state.url
     }else if(this.state.channel.includes("youtube.com")){
-      this.setState({url: this.state.channel.replace("watch?v=","embed/")})
+      this.setState({url: this.state.channel.replace("watch?v=","embed/")})//youtube embeded
       return this.state.url
     }else if (this.state.channel.includes("twitch.tv")){
       let channelName = this.state.channel.split("/")
-      this.setState({url: `https://player.twitch.tv/?channel=${channelName[3]}&parent=streamernews.example.com&muted=true`})
+      this.setState({url: `https://player.twitch.tv/?channel=${channelName[3]}&parent=streamernews.example.com&muted=true`})//twitch embeded
     }else if(this.state.channel.includes("mixer.com")){
       let channelName = this.state.channel.split("/")
-      this.setState({url: `https://mixer.com/embed/player/${channelName[3]}?disableLowLatency=1`})
+      this.setState({url: `https://mixer.com/embed/player/${channelName[3]}?disableLowLatency=1`}) //mixer embeded
 
     }
   }
