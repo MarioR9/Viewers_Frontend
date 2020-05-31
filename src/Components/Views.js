@@ -120,7 +120,7 @@ export default class Viewers extends React.Component{
           {this.state.status === false ?
           <Button onClick={this.handleStatusState} variant="danger" type="submit">Stop</Button>
           :
-          <Button onClick={this.handleRequest} variant="success" type="submit"> Send</Button>
+          <Button onClick={this.handleRequest} variant="success" type="submit">Send</Button>
           }
           &nbsp;
         </div>
