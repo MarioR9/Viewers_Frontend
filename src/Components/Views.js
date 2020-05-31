@@ -14,7 +14,7 @@ export default class Viewers extends React.Component{
                   }
   }
   componentDidMount=()=>{
-    const data = {server: "active"}
+    const data = {server: "active"} //earese this line after testing <----
     console.log(data)
     const options = {
       method: 'POST',
@@ -26,7 +26,6 @@ export default class Viewers extends React.Component{
     fetch(`https://viewersbackend.herokuapp.com/api2`, options)
     .then(resp=>resp.json())
     .then(data => ()=> {
-      this.setState({server: "active"})
       swal.fire(data.status)
     })
 
@@ -90,9 +89,13 @@ export default class Viewers extends React.Component{
     }else if (this.state.channel.includes("twitch.tv")){
       let channelName = this.state.channel.split("/")
       this.setState({url: `https://player.twitch.tv/?channel=${channelName[3]}&parent=streamernews.example.com&muted=true`})
+    }else if(this.state.channel.includes("mixer.com")){
+      let channelName = this.state.channel.split("/")
+      this.setState({url: `https://mixer.com/embed/player/${channelName[3]}?disableLowLatency=1`})
+
     }
   }
-  
+ 
  
   render(){
     return(
