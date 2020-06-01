@@ -25,9 +25,7 @@ export default class Viewers extends React.Component{
     }
     fetch(`https://viewersbackend.herokuapp.com/api2`, options)
     .then(resp=>resp.json())
-    .then(data => ()=> {
-      swal.fire(data.status)
-    })
+    .then(data => swal.fire(data.status))
 
     .catch(err => {
       // Error handling
@@ -49,7 +47,7 @@ export default class Viewers extends React.Component{
     }
     fetch(`https://viewersbackend.herokuapp.com/api`, options)
     .then(resp=>resp.json())
-    .then(data => {swal.fire(data.status)})
+    .then(data => swal.fire(data.status))
 
     .catch(err => {
       // Error handling
@@ -70,7 +68,7 @@ export default class Viewers extends React.Component{
     }
     fetch(`https://viewersbackend.herokuapp.com/api`, options)
     .then(resp=>resp.json())
-    .then(data => {swal.fire(data.status)})
+    .then(data => swal.fire(data.status))
 
     .catch(err => {
       // Error handling
