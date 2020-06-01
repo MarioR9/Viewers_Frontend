@@ -4,3 +4,6 @@ However, i have to make it programatically so user can enter the amount of viwer
 Basic idea is to use puppeteer to scrape proxy serves
 ****
 note to back end ... i should create a way to saved channels at users account with the set of proxy servers. after verifiing they work.
+
+## main goal to make it compatible with the main streaming platforms.
+including twitch, facebook gaming, youtube gaming and mixer.
